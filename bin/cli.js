@@ -5,7 +5,7 @@ const https = require('https');
 const path = require('path');
 
 // The URL where your button component is hosted
-const BUTTON_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui';
+const BASE_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui';
 
 // The name of the file to save locally
 const FILE_NAME = 'ui/card.tsx';
