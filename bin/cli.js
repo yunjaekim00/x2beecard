@@ -5,7 +5,7 @@ const https = require('https');
 const path = require('path');
 
 // The URL where your button component is hosted
-const BUTTON_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui';
+const BUTTON_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui/card.tsx';
 
 // The name of the file to save locally
 const FILE_NAME = 'card.tsx';
@@ -31,8 +31,8 @@ function downloadFile(fileUrl, outputPath) {
 // Parse command line arguments
 const [, , ...args] = process.argv;
 
-if (args.length === 0 || args[0] !== 'button') {
-	console.error('Usage: npx @myname add button');
+if (args.length === 0 || args[0] !== 'card') {
+	console.error('Usage: npx @plateer/card add card');
 	process.exit(1);
 }
 
