@@ -7,6 +7,8 @@ const path = require('path');
 // The URL where your button component is hosted
 const BASE_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui';
 
+
+
 // The path to the current working directory where the command is executed
 const localDirPath = process.cwd();
 
