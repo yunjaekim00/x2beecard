@@ -5,10 +5,10 @@ const https = require('https');
 const path = require('path');
 
 // The URL where your button component is hosted
-const BUTTON_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui/card.tsx';
+const BUTTON_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui';
 
 // The name of the file to save locally
-const FILE_NAME = 'card.tsx';
+const FILE_NAME = 'ui/card.tsx';
 
 // The path to the current working directory where the command is executed
 const localDirPath = process.cwd();
@@ -29,10 +29,24 @@ function downloadFile(fileUrl, outputPath) {
 }
 
 // Parse command line arguments
-const [, , ...args] = process.argv;
+const [, , componentName] = process.argv;
 
-if (args.length === 0 || args[0] !== 'card') {
-	console.error('Usage: npx @plateer/card add card');
+// Mapping component names to their URLs and filenames
+const components = {
+	button: {
+		url: `${BASE_COMPONENT_URL}/button.tsx`,
+		fileName: 'button.tsx'
+	},
+	card: {
+		url: `${BASE_COMPONENT_URL}/card.tsx`,
+		fileName: 'card.tsx'
+	}
+};
+
+// Check if the component name is valid
+const component = components[componentName];
+if (!component) {
+	console.error('Usage: npx @myname <component-name>\nAvailable components: button, card');
 	process.exit(1);
 }
 
