@@ -54,6 +54,6 @@ if (!component) {
 const outputPath = path.join(localDirPath, FILE_NAME);
 
 // Start the download
-downloadFile(BUTTON_COMPONENT_URL, outputPath)
+downloadFile(BASE_COMPONENT_URL, outputPath)
 	.then(() => console.log(`${FILE_NAME} downloaded successfully!`))
 	.catch((error) => console.error('Download failed:', error));
