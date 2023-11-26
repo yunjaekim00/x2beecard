@@ -7,9 +7,6 @@ const path = require('path');
 // The URL where your button component is hosted
 const BASE_COMPONENT_URL = 'https://github.com/yunjaekim00/x2beecard/tree/99085ecce126d7395d6baaca0b405737fed90cf2/ui';
 
-// The name of the file to save locally
-const FILE_NAME = 'ui/card.tsx';
-
 // The path to the current working directory where the command is executed
 const localDirPath = process.cwd();
 
@@ -35,25 +32,25 @@ const [, , componentName] = process.argv;
 const components = {
 	button: {
 		url: `${BASE_COMPONENT_URL}/button.tsx`,
-		fileName: 'button.tsx'
+		fileName: 'components/ui/button.tsx'
 	},
 	card: {
 		url: `${BASE_COMPONENT_URL}/card.tsx`,
-		fileName: 'card.tsx'
+		fileName: 'components/ui/card.tsx'
 	}
 };
 
 // Check if the component name is valid
 const component = components[componentName];
 if (!component) {
-	console.error('Usage: npx @myname <component-name>\nAvailable components: button, card');
+	console.error(`Usage: npx @x2bee/ui ${componentName} not available!\nAvailable components: button, card`);
 	process.exit(1);
 }
 
 // The full path where the button component should be saved
-const outputPath = path.join(localDirPath, FILE_NAME);
+const outputPath = path.join(localDirPath, component.fileName);
 
 // Start the download
-downloadFile(BASE_COMPONENT_URL, outputPath)
-	.then(() => console.log(`${FILE_NAME} downloaded successfully!`))
+downloadFile(component.url, outputPath)
+	.then(() => console.log(`${component.fileName} downloaded successfully!`))
 	.catch((error) => console.error('Download failed:', error));
